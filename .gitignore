@@ -33,3 +33,9 @@ Thumbs.db
 
 # ─── CLAUDE_BRIEF is internal (kept locally, not needed in repo) ───
 # CLAUDE_BRIEF.md   # uncomment if you want to exclude
+
+# ─── Remotion demo video (tooling only; outputs go in snaps/) ────────
+demo-video/node_modules/
+demo-video/out/
+demo-video/.cache/
+demo-video/**/.remotion/

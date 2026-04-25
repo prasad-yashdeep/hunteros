@@ -31,12 +31,17 @@
 
 ## 📽️ Demo
 
-<!-- DEMO_VIDEO_PLACEHOLDER -->
-_Remotion demo reel rendering — will be linked here shortly._
+<p align="center">
+  <img src="snaps/demo.gif" alt="HunterOS demo reel — 28s animated preview" width="100%" />
+</p>
 
-**Sample TTS sample** (ElevenLabs "Harry — Fierce Warrior" as the System voice):
+> **🎥 Full MP4** (1920×1080, 28s, 5.3 MB): [`snaps/demo.mp4`](snaps/demo.mp4)
+
+**Sample TTS clip** (ElevenLabs "Harry — Fierce Warrior" as the System voice):
 
 ▶ [`snaps/arise.mp3`](snaps/arise.mp3) — _"Arise. HunterOS online. Nine hunters registered."_
+
+Rendered with **[Remotion](https://www.remotion.dev/)** — scripted in `demo-video/src/Composition.tsx`. Full source in [`demo-video/`](demo-video/).
 
 ---
 

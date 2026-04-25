@@ -167,8 +167,17 @@ async def tts(body: TTSIn) -> dict[str, Any]:
 
 @app.get("/tts/{fname}")
 async def tts_file(fname: str) -> FileResponse:
-    path = TTS_DIR / fname
-    if not path.exists():
+    # Defence in depth — FastAPI path params already disallow `/`, but we also
+    # reject any traversal markers and confirm the resolved path stays inside
+    # TTS_DIR before streaming anything.
+    if ".." in fname or "/" in fname or "\\" in fname or fname.startswith("."):
+        raise HTTPException(400, detail="invalid filename")
+    path = (TTS_DIR / fname).resolve()
+    try:
+        path.relative_to(TTS_DIR.resolve())
+    except ValueError:
+        raise HTTPException(400, detail="invalid filename")
+    if not path.exists() or not path.is_file():
         raise HTTPException(404)
     return FileResponse(str(path), media_type="audio/mpeg")
 
