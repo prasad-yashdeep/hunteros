@@ -11,7 +11,7 @@ import httpx
 
 OPENAI_KEY = os.getenv("OPENAI_API_KEY", "")
 STT_MODEL = os.getenv("HUNTEROS_STT_MODEL", "whisper-1")
-DEFAULT_VOICE = os.getenv("HUNTEROS_TTS_VOICE", "Clawd")
+DEFAULT_VOICE = os.getenv("HUNTEROS_TTS_VOICE", "Harry")
 
 
 async def transcribe(audio_path: str) -> str:

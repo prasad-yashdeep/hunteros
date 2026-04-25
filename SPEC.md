@@ -75,7 +75,7 @@ Destructive intents (kill, cron.rm) require confirmation modal.
 
 ```
 ╭─────────────────────────── HunterOS ────────────────── [◉ REC] ─╮
-│  SYSTEM — LEVEL 47                         Shadow Monarch: Yash │
+│  SYSTEM — LEVEL 47                         Shadow Monarch: Operator │
 ├──────────────┬──────────────────────────┬───────────────────────┤
 │ HUNTERS (5)  │  DUNGEONS (active)       │  SYSTEM LOG           │
 │              │                          │                       │

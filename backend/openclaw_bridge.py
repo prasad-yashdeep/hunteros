@@ -297,15 +297,26 @@ async def fetch_sessions(active_only: bool = True) -> list[dict[str, Any]]:
     if not isinstance(sessions, list):
         return []
     slim: list[dict[str, Any]] = []
-    for s in sessions[:40]:
+    seen: set[str] = set()
+    for s in sessions[:80]:
+        sid = s.get("sessionId") or s.get("id") or ""
+        agent = s.get("agentId") or s.get("agent") or ""
+        # Dedupe by (id, agent) — same session may surface from multiple
+        # workspace beacons; keep the first occurrence.
+        dedupe_key = f"{sid}::{agent}"
+        if dedupe_key in seen:
+            continue
+        seen.add(dedupe_key)
         slim.append({
-            "id": s.get("sessionId") or s.get("id") or "",
-            "agent": s.get("agentId") or s.get("agent") or "",
+            "id": sid,
+            "agent": agent,
             "kind": s.get("kind") or s.get("type") or "",
             "channel": s.get("channel") or "",
             "lastActiveMs": s.get("lastActiveMs") or s.get("lastMessageAt") or 0,
             "messageCount": s.get("messageCount") or s.get("messages") or 0,
         })
+        if len(slim) >= 40:
+            break
     return slim
 
 

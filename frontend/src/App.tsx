@@ -265,7 +265,7 @@ function App() {
                 </div>
                 <div className="t-mono text-[11px] text-ink-mute mt-0.5">
                   Shadow Monarch:{" "}
-                  <span className="text-monarch-300 glow-text-monarch">Yash</span>
+                  <span className="text-monarch-300 glow-text-monarch">Operator</span>
                   <span className="mx-2 text-ink-ghost">·</span>
                   Total Lv:
                   <span className="ml-1 text-quest glow-text-gold">
@@ -407,9 +407,9 @@ function App() {
                 </div>
               ) : (
                 <ul className="flex-1 overflow-y-auto">
-                  {sessions.map((s) => (
+                  {sessions.map((s, idx) => (
                     <li
-                      key={s.id}
+                      key={`${s.id || "s"}-${s.agent || "a"}-${idx}`}
                       className="px-3 py-2 border-b border-system/10 last:border-b-0 grid grid-cols-[1fr_auto] gap-x-3 gap-y-0.5"
                     >
                       <span className="h-display text-[13px] text-ink truncate">

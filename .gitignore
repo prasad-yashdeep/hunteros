@@ -1,0 +1,35 @@
+# ─── Backend ─────────────────────────────────────────────────────────
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# ─── Frontend ────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ─── Secrets (never commit!) ────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ─── OS / IDE ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# ─── Logs / runtime ─────────────────────────────────────────────────
+*.log
+/tmp-hunteros/
+/tmp/hunteros-*
+
+# ─── CLAUDE_BRIEF is internal (kept locally, not needed in repo) ───
+# CLAUDE_BRIEF.md   # uncomment if you want to exclude
